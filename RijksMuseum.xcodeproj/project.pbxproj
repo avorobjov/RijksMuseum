@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FAFA0F5F259DC3D20087C943 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA0F5E259DC3D20087C943 /* AppDelegate.swift */; };
-		FAFA0F61259DC3D20087C943 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA0F60259DC3D20087C943 /* SceneDelegate.swift */; };
 		FAFA0F63259DC3D20087C943 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA0F62259DC3D20087C943 /* ViewController.swift */; };
-		FAFA0F66259DC3D20087C943 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAFA0F64259DC3D20087C943 /* Main.storyboard */; };
 		FAFA0F68259DC3D50087C943 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAFA0F67259DC3D50087C943 /* Assets.xcassets */; };
 		FAFA0F6B259DC3D50087C943 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAFA0F69259DC3D50087C943 /* LaunchScreen.storyboard */; };
 		FAFA0F76259DC3D60087C943 /* RijksMuseumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA0F75259DC3D60087C943 /* RijksMuseumTests.swift */; };
@@ -37,9 +35,7 @@
 /* Begin PBXFileReference section */
 		FAFA0F5B259DC3D20087C943 /* RijksMuseum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RijksMuseum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAFA0F5E259DC3D20087C943 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FAFA0F60259DC3D20087C943 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FAFA0F62259DC3D20087C943 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FAFA0F65259DC3D20087C943 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FAFA0F67259DC3D50087C943 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAFA0F6A259DC3D50087C943 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAFA0F6C259DC3D50087C943 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,9 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				FAFA0F5E259DC3D20087C943 /* AppDelegate.swift */,
-				FAFA0F60259DC3D20087C943 /* SceneDelegate.swift */,
 				FAFA0F62259DC3D20087C943 /* ViewController.swift */,
-				FAFA0F64259DC3D20087C943 /* Main.storyboard */,
 				FAFA0F67259DC3D50087C943 /* Assets.xcassets */,
 				FAFA0F69259DC3D50087C943 /* LaunchScreen.storyboard */,
 				FAFA0F6C259DC3D50087C943 /* Info.plist */,
@@ -138,6 +132,7 @@
 				FAFA0F57259DC3D20087C943 /* Sources */,
 				FAFA0F58259DC3D20087C943 /* Frameworks */,
 				FAFA0F59259DC3D20087C943 /* Resources */,
+				FAFA0FBA259DC7360087C943 /* Run swiftlint */,
 			);
 			buildRules = (
 			);
@@ -233,7 +228,6 @@
 			files = (
 				FAFA0F6B259DC3D50087C943 /* LaunchScreen.storyboard in Resources */,
 				FAFA0F68259DC3D50087C943 /* Assets.xcassets in Resources */,
-				FAFA0F66259DC3D20087C943 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +247,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		FAFA0FBA259DC7360087C943 /* Run swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run swiftlint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint --lenient\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FAFA0F57259DC3D20087C943 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -260,7 +275,6 @@
 			files = (
 				FAFA0F63259DC3D20087C943 /* ViewController.swift in Sources */,
 				FAFA0F5F259DC3D20087C943 /* AppDelegate.swift in Sources */,
-				FAFA0F61259DC3D20087C943 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,14 +310,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		FAFA0F64259DC3D20087C943 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FAFA0F65259DC3D20087C943 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FAFA0F69259DC3D50087C943 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
