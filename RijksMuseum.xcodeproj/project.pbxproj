@@ -29,6 +29,13 @@
 		FAFA1030259FC47C0087C943 /* SessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA102F259FC47C0087C943 /* SessionTests.swift */; };
 		FAFA1036259FC4A00087C943 /* MockSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA1035259FC4A00087C943 /* MockSession.swift */; };
 		FAFA103B259FCB600087C943 /* MockAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA103A259FCB600087C943 /* MockAPI.swift */; };
+		FAFA1040259FD1030087C943 /* ArtObjectsNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA103F259FD1030087C943 /* ArtObjectsNetwork.swift */; };
+		FAFA1045259FD10B0087C943 /* ArtObjectsDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA1044259FD10B0087C943 /* ArtObjectsDatabase.swift */; };
+		FAFA104B259FD2990087C943 /* ArtObjectsSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA104A259FD2990087C943 /* ArtObjectsSearchResponse.swift */; };
+		FAFA1053259FD7AE0087C943 /* ArtObjectsNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA1052259FD7AE0087C943 /* ArtObjectsNetworkTests.swift */; };
+		FAFA1059259FDA3D0087C943 /* empty_art_objects.json in Resources */ = {isa = PBXBuildFile; fileRef = FAFA1058259FDA3D0087C943 /* empty_art_objects.json */; };
+		FAFA105E259FDDFE0087C943 /* single_art_object.json in Resources */ = {isa = PBXBuildFile; fileRef = FAFA105D259FDDFE0087C943 /* single_art_object.json */; };
+		FAFA1066259FDF5B0087C943 /* ArtObjectsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA1065259FDF5B0087C943 /* ArtObjectsServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +88,13 @@
 		FAFA102F259FC47C0087C943 /* SessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTests.swift; sourceTree = "<group>"; };
 		FAFA1035259FC4A00087C943 /* MockSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSession.swift; sourceTree = "<group>"; };
 		FAFA103A259FCB600087C943 /* MockAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPI.swift; sourceTree = "<group>"; };
+		FAFA103F259FD1030087C943 /* ArtObjectsNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectsNetwork.swift; sourceTree = "<group>"; };
+		FAFA1044259FD10B0087C943 /* ArtObjectsDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectsDatabase.swift; sourceTree = "<group>"; };
+		FAFA104A259FD2990087C943 /* ArtObjectsSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectsSearchResponse.swift; sourceTree = "<group>"; };
+		FAFA1052259FD7AE0087C943 /* ArtObjectsNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectsNetworkTests.swift; sourceTree = "<group>"; };
+		FAFA1058259FDA3D0087C943 /* empty_art_objects.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = empty_art_objects.json; sourceTree = "<group>"; };
+		FAFA105D259FDDFE0087C943 /* single_art_object.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = single_art_object.json; sourceTree = "<group>"; };
+		FAFA1065259FDF5B0087C943 /* ArtObjectsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectsServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +185,9 @@
 			isa = PBXGroup;
 			children = (
 				FAFA1034259FC4970087C943 /* Mocks */,
+				FAFA1057259FDA170087C943 /* Responses */,
+				FAFA1065259FDF5B0087C943 /* ArtObjectsServiceTests.swift */,
+				FAFA1052259FD7AE0087C943 /* ArtObjectsNetworkTests.swift */,
 				FAFA102F259FC47C0087C943 /* SessionTests.swift */,
 				FAFA1027259FBDBD0087C943 /* APITests.swift */,
 				FAFA1005259E06BD0087C943 /* ArtObjectJSONTests.swift */,
@@ -208,6 +225,7 @@
 		FAFA0FC0259DE9A00087C943 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				FAFA1049259FD2800087C943 /* Responses */,
 				FAFA100F259FA7A00087C943 /* API */,
 				FAFA0FCB259DE9D80087C943 /* ArtObjectJSON.swift */,
 				FAFA0FD8259DEA210087C943 /* Session.swift */,
@@ -247,6 +265,8 @@
 			isa = PBXGroup;
 			children = (
 				FAFA101F259FB18F0087C943 /* ArtObjectsService.swift */,
+				FAFA1044259FD10B0087C943 /* ArtObjectsDatabase.swift */,
+				FAFA103F259FD1030087C943 /* ArtObjectsNetwork.swift */,
 			);
 			path = ArtObjects;
 			sourceTree = "<group>";
@@ -258,6 +278,23 @@
 				FAFA103A259FCB600087C943 /* MockAPI.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		FAFA1049259FD2800087C943 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				FAFA104A259FD2990087C943 /* ArtObjectsSearchResponse.swift */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		FAFA1057259FDA170087C943 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				FAFA1058259FDA3D0087C943 /* empty_art_objects.json */,
+				FAFA105D259FDDFE0087C943 /* single_art_object.json */,
+			);
+			path = Responses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,6 +414,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAFA105E259FDDFE0087C943 /* single_art_object.json in Resources */,
+				FAFA1059259FDA3D0087C943 /* empty_art_objects.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,8 +537,11 @@
 				FAFA0FD9259DEA210087C943 /* Session.swift in Sources */,
 				FAFA1020259FB18F0087C943 /* ArtObjectsService.swift in Sources */,
 				FAFA1011259FA7A00087C943 /* API.swift in Sources */,
+				FAFA1040259FD1030087C943 /* ArtObjectsNetwork.swift in Sources */,
+				FAFA1045259FD10B0087C943 /* ArtObjectsDatabase.swift in Sources */,
 				FAFA0FC2259DE9BB0087C943 /* ArtObject.swift in Sources */,
 				FAFA1019259FA8A50087C943 /* ArtObjectsAPI.swift in Sources */,
+				FAFA104B259FD2990087C943 /* ArtObjectsSearchResponse.swift in Sources */,
 				FAFA0FF5259DFF070087C943 /* SessionError.swift in Sources */,
 				FAFA0F5F259DC3D20087C943 /* AppDelegate.swift in Sources */,
 				FAFA0FCC259DE9D80087C943 /* ArtObjectJSON.swift in Sources */,
@@ -515,8 +557,10 @@
 				FAFA1036259FC4A00087C943 /* MockSession.swift in Sources */,
 				FAFA1006259E06BD0087C943 /* ArtObjectJSONTests.swift in Sources */,
 				FAFA1028259FBDBD0087C943 /* APITests.swift in Sources */,
+				FAFA1066259FDF5B0087C943 /* ArtObjectsServiceTests.swift in Sources */,
 				FAFA103B259FCB600087C943 /* MockAPI.swift in Sources */,
 				FAFA0FFA259DFF7D0087C943 /* SessionErrorTests.swift in Sources */,
+				FAFA1053259FD7AE0087C943 /* ArtObjectsNetworkTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
