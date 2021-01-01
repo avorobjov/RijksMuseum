@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+struct ArtObject {
+    let id: String
+    let title: String
+    let author: String
+
+    let imageURL: URL
+
+    let detailsURL: URL
+    let webURL: URL?
+}

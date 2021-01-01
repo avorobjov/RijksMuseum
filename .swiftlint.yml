@@ -183,7 +183,7 @@ opt_in_rules: # some rules are only opt-in
     - required_enum_case
     - single_test_class
     - sorted_first_last
-    - sorted_imports
+#    - sorted_imports
     - static_operator
     - strict_fileprivate
     - strong_iboutlet
@@ -211,3 +211,5 @@ opt_in_rules: # some rules are only opt-in
 
 excluded:
     - Pods
+    - RijksMuseumTests
+    - RijksMuseumUITests

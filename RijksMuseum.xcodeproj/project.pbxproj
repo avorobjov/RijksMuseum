@@ -23,6 +23,7 @@
 		FAFA0FEF259DFDD60087C943 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA0FEE259DFDD60087C943 /* Constants.swift */; };
 		FAFA0FF5259DFF070087C943 /* SessionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA0FF4259DFF070087C943 /* SessionError.swift */; };
 		FAFA0FFA259DFF7D0087C943 /* SessionErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA0FF9259DFF7D0087C943 /* SessionErrorTests.swift */; };
+		FAFA1006259E06BD0087C943 /* ArtObjectJSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA1005259E06BD0087C943 /* ArtObjectJSONTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		FAFA0FEE259DFDD60087C943 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FAFA0FF4259DFF070087C943 /* SessionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionError.swift; sourceTree = "<group>"; };
 		FAFA0FF9259DFF7D0087C943 /* SessionErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionErrorTests.swift; sourceTree = "<group>"; };
+		FAFA1005259E06BD0087C943 /* ArtObjectJSONTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectJSONTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 		FAFA0F74259DC3D60087C943 /* RijksMuseumTests */ = {
 			isa = PBXGroup;
 			children = (
+				FAFA1005259E06BD0087C943 /* ArtObjectJSONTests.swift */,
 				FAFA0FF9259DFF7D0087C943 /* SessionErrorTests.swift */,
 				FAFA0F75259DC3D60087C943 /* RijksMuseumTests.swift */,
 				FAFA0F77259DC3D60087C943 /* Info.plist */,
@@ -460,6 +463,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAFA0F76259DC3D60087C943 /* RijksMuseumTests.swift in Sources */,
+				FAFA1006259E06BD0087C943 /* ArtObjectJSONTests.swift in Sources */,
 				FAFA0FFA259DFF7D0087C943 /* SessionErrorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
