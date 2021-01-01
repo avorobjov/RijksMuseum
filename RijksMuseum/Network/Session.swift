@@ -7,40 +7,57 @@
 
 import Alamofire
 
+typealias SessionResult<T> = Result<T, SessionError>
+typealias SessionCompletion<T> = (SessionResult<T>) -> Void
+
 protocol Session {
-    func perform<T: Decodable>(request: SessionRequest, completion: @escaping (Result<T, SessionError>) -> Void)
+    func fetch(_ api: API, completion: @escaping SessionCompletion<Data>)
+    func fetch<T: Decodable>(_ type: T.Type, _ api: API, completion: @escaping SessionCompletion<T>)
 }
 
-class SessionImpl {
-    private let baseURL: URL
-    private let key: String
+extension Session {
+    func fetch<T: Decodable>(_ type: T.Type, _ api: API, completion: @escaping SessionCompletion<T>) {
+        fetch(api) { result in
+            completion(result.flatMap { data -> SessionResult<T> in
+                do {
+                    let decoder = JSONDecoder()
+                    decoder.dateDecodingStrategy = .iso8601
+                    return .success(try decoder.decode(T.self, from: data))
+                }
+                catch {
+                    print("Session: decode error \(error)")
+                }
 
-    init(baseURL: URL, key: String) {
-        self.baseURL = baseURL
-        self.key = key
+                return .failure(.decodeError)
+            })
+        }
+    }
+}
+
+final class SessionImpl {
+    private let defaultParameters: Alamofire.Parameters
+
+    init(key: String) {
+        defaultParameters = [
+            "key": key,
+            "culture": "en",
+        ]
+    }
+
+    func buildRequest(for api: API) -> URLRequest? {
+        return try? api.asURLRequest(defaultParameters: defaultParameters)
     }
 }
 
 extension SessionImpl: Session {
-    func perform<T: Decodable>(request: SessionRequest, completion: @escaping (Result<T, SessionError>) -> Void) {
-        guard let url = URL(string: request.path, relativeTo: baseURL) else {
+    func fetch(_ api: API, completion: @escaping SessionCompletion<Data>) {
+        guard let request = buildRequest(for: api) else {
             return completion(.failure(.badRequest))
         }
 
-        var parameters = [
-            "key": key,
-            "culture": "en",
-        ]
-
-        request.parameters.forEach { key, value in
-            parameters[key] = value
-        }
-
-        AF.request(url,
-                   method: .get,
-                   parameters: parameters)
+        AF.request(request)
             .validate()
-            .responseDecodable(of: T.self) { response in
+            .responseData { response in
                 let result = response
                     .mapError { SessionError($0) }
                     .result

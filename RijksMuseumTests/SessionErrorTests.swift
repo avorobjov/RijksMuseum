@@ -6,8 +6,8 @@
 //
 
 import Alamofire
-@testable import RijksMuseum
 import XCTest
+@testable import RijksMuseum
 
 class SessionErrorTests: XCTestCase {
     func test_URLError_noInternetConnection() throws {

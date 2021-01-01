@@ -13,17 +13,22 @@
 		FAFA0F63259DC3D20087C943 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA0F62259DC3D20087C943 /* ViewController.swift */; };
 		FAFA0F68259DC3D50087C943 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAFA0F67259DC3D50087C943 /* Assets.xcassets */; };
 		FAFA0F6B259DC3D50087C943 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAFA0F69259DC3D50087C943 /* LaunchScreen.storyboard */; };
-		FAFA0F76259DC3D60087C943 /* RijksMuseumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA0F75259DC3D60087C943 /* RijksMuseumTests.swift */; };
 		FAFA0F81259DC3D60087C943 /* RijksMuseumUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA0F80259DC3D60087C943 /* RijksMuseumUITests.swift */; };
 		FAFA0FC2259DE9BB0087C943 /* ArtObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA0FC1259DE9BB0087C943 /* ArtObject.swift */; };
 		FAFA0FC7259DE9C80087C943 /* ArtObjectDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA0FC6259DE9C80087C943 /* ArtObjectDetails.swift */; };
 		FAFA0FCC259DE9D80087C943 /* ArtObjectJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA0FCB259DE9D80087C943 /* ArtObjectJSON.swift */; };
 		FAFA0FD9259DEA210087C943 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA0FD8259DEA210087C943 /* Session.swift */; };
-		FAFA0FDE259DEC460087C943 /* SessionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA0FDD259DEC460087C943 /* SessionRequest.swift */; };
 		FAFA0FEF259DFDD60087C943 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA0FEE259DFDD60087C943 /* Constants.swift */; };
 		FAFA0FF5259DFF070087C943 /* SessionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA0FF4259DFF070087C943 /* SessionError.swift */; };
 		FAFA0FFA259DFF7D0087C943 /* SessionErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA0FF9259DFF7D0087C943 /* SessionErrorTests.swift */; };
 		FAFA1006259E06BD0087C943 /* ArtObjectJSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA1005259E06BD0087C943 /* ArtObjectJSONTests.swift */; };
+		FAFA1011259FA7A00087C943 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA1010259FA7A00087C943 /* API.swift */; };
+		FAFA1019259FA8A50087C943 /* ArtObjectsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA1018259FA8A50087C943 /* ArtObjectsAPI.swift */; };
+		FAFA1020259FB18F0087C943 /* ArtObjectsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA101F259FB18F0087C943 /* ArtObjectsService.swift */; };
+		FAFA1028259FBDBD0087C943 /* APITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA1027259FBDBD0087C943 /* APITests.swift */; };
+		FAFA1030259FC47C0087C943 /* SessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA102F259FC47C0087C943 /* SessionTests.swift */; };
+		FAFA1036259FC4A00087C943 /* MockSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA1035259FC4A00087C943 /* MockSession.swift */; };
+		FAFA103B259FCB600087C943 /* MockAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA103A259FCB600087C943 /* MockAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +62,6 @@
 		FAFA0F6A259DC3D50087C943 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAFA0F6C259DC3D50087C943 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAFA0F71259DC3D60087C943 /* RijksMuseumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RijksMuseumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAFA0F75259DC3D60087C943 /* RijksMuseumTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RijksMuseumTests.swift; sourceTree = "<group>"; };
 		FAFA0F77259DC3D60087C943 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAFA0F7C259DC3D60087C943 /* RijksMuseumUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RijksMuseumUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAFA0F80259DC3D60087C943 /* RijksMuseumUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RijksMuseumUITests.swift; sourceTree = "<group>"; };
@@ -66,11 +70,17 @@
 		FAFA0FC6259DE9C80087C943 /* ArtObjectDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectDetails.swift; sourceTree = "<group>"; };
 		FAFA0FCB259DE9D80087C943 /* ArtObjectJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectJSON.swift; sourceTree = "<group>"; };
 		FAFA0FD8259DEA210087C943 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
-		FAFA0FDD259DEC460087C943 /* SessionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRequest.swift; sourceTree = "<group>"; };
 		FAFA0FEE259DFDD60087C943 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FAFA0FF4259DFF070087C943 /* SessionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionError.swift; sourceTree = "<group>"; };
 		FAFA0FF9259DFF7D0087C943 /* SessionErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionErrorTests.swift; sourceTree = "<group>"; };
 		FAFA1005259E06BD0087C943 /* ArtObjectJSONTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectJSONTests.swift; sourceTree = "<group>"; };
+		FAFA1010259FA7A00087C943 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		FAFA1018259FA8A50087C943 /* ArtObjectsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectsAPI.swift; sourceTree = "<group>"; };
+		FAFA101F259FB18F0087C943 /* ArtObjectsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectsService.swift; sourceTree = "<group>"; };
+		FAFA1027259FBDBD0087C943 /* APITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITests.swift; sourceTree = "<group>"; };
+		FAFA102F259FC47C0087C943 /* SessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTests.swift; sourceTree = "<group>"; };
+		FAFA1035259FC4A00087C943 /* MockSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSession.swift; sourceTree = "<group>"; };
+		FAFA103A259FCB600087C943 /* MockAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				FAFA0FF3259DFEE50087C943 /* Support Files */,
+				FAFA101D259FAD690087C943 /* Services */,
 				FAFA0FBF259DE9A00087C943 /* Entities */,
 				FAFA0FBE259DE9A00087C943 /* Database */,
 				FAFA0FC0259DE9A00087C943 /* Network */,
@@ -159,9 +170,11 @@
 		FAFA0F74259DC3D60087C943 /* RijksMuseumTests */ = {
 			isa = PBXGroup;
 			children = (
+				FAFA1034259FC4970087C943 /* Mocks */,
+				FAFA102F259FC47C0087C943 /* SessionTests.swift */,
+				FAFA1027259FBDBD0087C943 /* APITests.swift */,
 				FAFA1005259E06BD0087C943 /* ArtObjectJSONTests.swift */,
 				FAFA0FF9259DFF7D0087C943 /* SessionErrorTests.swift */,
-				FAFA0F75259DC3D60087C943 /* RijksMuseumTests.swift */,
 				FAFA0F77259DC3D60087C943 /* Info.plist */,
 			);
 			path = RijksMuseumTests;
@@ -195,10 +208,10 @@
 		FAFA0FC0259DE9A00087C943 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				FAFA100F259FA7A00087C943 /* API */,
 				FAFA0FCB259DE9D80087C943 /* ArtObjectJSON.swift */,
 				FAFA0FD8259DEA210087C943 /* Session.swift */,
 				FAFA0FF4259DFF070087C943 /* SessionError.swift */,
-				FAFA0FDD259DEC460087C943 /* SessionRequest.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -211,6 +224,40 @@
 				FAFA0F6C259DC3D50087C943 /* Info.plist */,
 			);
 			name = "Support Files";
+			sourceTree = "<group>";
+		};
+		FAFA100F259FA7A00087C943 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				FAFA1010259FA7A00087C943 /* API.swift */,
+				FAFA1018259FA8A50087C943 /* ArtObjectsAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		FAFA101D259FAD690087C943 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FAFA101E259FAD800087C943 /* ArtObjects */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		FAFA101E259FAD800087C943 /* ArtObjects */ = {
+			isa = PBXGroup;
+			children = (
+				FAFA101F259FB18F0087C943 /* ArtObjectsService.swift */,
+			);
+			path = ArtObjects;
+			sourceTree = "<group>";
+		};
+		FAFA1034259FC4970087C943 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				FAFA1035259FC4A00087C943 /* MockSession.swift */,
+				FAFA103A259FCB600087C943 /* MockAPI.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -447,10 +494,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAFA0F63259DC3D20087C943 /* ViewController.swift in Sources */,
-				FAFA0FDE259DEC460087C943 /* SessionRequest.swift in Sources */,
 				FAFA0FC7259DE9C80087C943 /* ArtObjectDetails.swift in Sources */,
 				FAFA0FD9259DEA210087C943 /* Session.swift in Sources */,
+				FAFA1020259FB18F0087C943 /* ArtObjectsService.swift in Sources */,
+				FAFA1011259FA7A00087C943 /* API.swift in Sources */,
 				FAFA0FC2259DE9BB0087C943 /* ArtObject.swift in Sources */,
+				FAFA1019259FA8A50087C943 /* ArtObjectsAPI.swift in Sources */,
 				FAFA0FF5259DFF070087C943 /* SessionError.swift in Sources */,
 				FAFA0F5F259DC3D20087C943 /* AppDelegate.swift in Sources */,
 				FAFA0FCC259DE9D80087C943 /* ArtObjectJSON.swift in Sources */,
@@ -462,8 +511,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAFA0F76259DC3D60087C943 /* RijksMuseumTests.swift in Sources */,
+				FAFA1030259FC47C0087C943 /* SessionTests.swift in Sources */,
+				FAFA1036259FC4A00087C943 /* MockSession.swift in Sources */,
 				FAFA1006259E06BD0087C943 /* ArtObjectJSONTests.swift in Sources */,
+				FAFA1028259FBDBD0087C943 /* APITests.swift in Sources */,
+				FAFA103B259FCB600087C943 /* MockAPI.swift in Sources */,
 				FAFA0FFA259DFF7D0087C943 /* SessionErrorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,7 @@
 import Foundation
 
 struct ArtObject {
-    let id: String
+    let id: ArtObjectId
     let title: String
     let author: String
 
@@ -16,4 +16,21 @@ struct ArtObject {
 
     let detailsURL: URL
     let webURL: URL?
+}
+
+// MARK: - ArtObjectId
+struct ArtObjectId: Hashable {
+    let rawValue: String
+}
+
+extension ArtObjectId: ExpressibleByStringLiteral {
+    init(stringLiteral value: String) {
+        rawValue = value
+    }
+}
+
+extension ArtObjectId: CustomStringConvertible {
+    var description: String {
+        return rawValue
+    }
 }

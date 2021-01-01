@@ -48,7 +48,7 @@ extension ArtObjectJSON {
 
         let webURL = links.web.flatMap { URL(string: $0) }
 
-        return ArtObject(id: id,
+        return ArtObject(id: ArtObjectId(stringLiteral: id),
                          title: title ?? "",
                          author: principalOrFirstMaker ?? "",
                          imageURL: imageURL,

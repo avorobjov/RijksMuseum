@@ -17,7 +17,7 @@ disabled_rules:
 
     # temporary disable
 #   - vertical_whitespace_between_cases
-#   - statement_position
+    - statement_position
 #   - private_outlet
 #   - private_action
 #   - attributes

@@ -5,8 +5,8 @@
 //  Created by Alexander Vorobjov on 12/31/20.
 //
 
-@testable import RijksMuseum
 import XCTest
+@testable import RijksMuseum
 
 class ArtObjectJSONTests: XCTestCase {
     static let identifier = "identifier"
@@ -21,7 +21,7 @@ class ArtObjectJSONTests: XCTestCase {
         let model = json.toModel()
         XCTAssertNotNil(model)
 
-        XCTAssertEqual(model!.id, Self.identifier)
+        XCTAssertEqual(model!.id.rawValue, Self.identifier)
         XCTAssertEqual(model!.title, "")
         XCTAssertEqual(model!.author, "")
         XCTAssertEqual(model!.detailsURL.absoluteString, Self.detailsURL)
@@ -34,7 +34,7 @@ class ArtObjectJSONTests: XCTestCase {
         let model = json.toModel()
         XCTAssertNotNil(model)
 
-        XCTAssertEqual(model!.id, Self.identifier)
+        XCTAssertEqual(model!.id.rawValue, Self.identifier)
         XCTAssertEqual(model!.title, Self.title)
         XCTAssertEqual(model!.author, Self.author)
         XCTAssertEqual(model!.detailsURL.absoluteString, Self.detailsURL)

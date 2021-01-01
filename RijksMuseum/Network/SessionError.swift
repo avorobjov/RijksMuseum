@@ -11,9 +11,9 @@ enum SessionError: Error {
     case badRequest
     case noInternetConnection
     case connectionError
+    case decodeError
 
     init(_ error: Error) {
-//        static func convert(_ error: Error) -> SessionError {
         if let urlError = error as? URLError {
             if urlError.code == .notConnectedToInternet {
                 self = .noInternetConnection
