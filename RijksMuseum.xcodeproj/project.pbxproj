@@ -36,6 +36,13 @@
 		FAFA1059259FDA3D0087C943 /* empty_art_objects.json in Resources */ = {isa = PBXBuildFile; fileRef = FAFA1058259FDA3D0087C943 /* empty_art_objects.json */; };
 		FAFA105E259FDDFE0087C943 /* single_art_object.json in Resources */ = {isa = PBXBuildFile; fileRef = FAFA105D259FDDFE0087C943 /* single_art_object.json */; };
 		FAFA1066259FDF5B0087C943 /* ArtObjectsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA1065259FDF5B0087C943 /* ArtObjectsServiceTests.swift */; };
+		FAFA1070259FE10B0087C943 /* HomeContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA106F259FE10B0087C943 /* HomeContract.swift */; };
+		FAFA1075259FE1140087C943 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA1074259FE1140087C943 /* HomePresenter.swift */; };
+		FAFA107A259FE11D0087C943 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA1079259FE11D0087C943 /* HomeViewController.swift */; };
+		FAFA107F259FE1460087C943 /* HomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA107E259FE1460087C943 /* HomeBuilder.swift */; };
+		FAFA1084259FE19B0087C943 /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA1083259FE19B0087C943 /* AppAssembly.swift */; };
+		FAFA1089259FE34E0087C943 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA1088259FE34E0087C943 /* AppCoordinator.swift */; };
+		FAFA108F259FE77F0087C943 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA108E259FE77F0087C943 /* View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +102,13 @@
 		FAFA1058259FDA3D0087C943 /* empty_art_objects.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = empty_art_objects.json; sourceTree = "<group>"; };
 		FAFA105D259FDDFE0087C943 /* single_art_object.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = single_art_object.json; sourceTree = "<group>"; };
 		FAFA1065259FDF5B0087C943 /* ArtObjectsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectsServiceTests.swift; sourceTree = "<group>"; };
+		FAFA106F259FE10B0087C943 /* HomeContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContract.swift; sourceTree = "<group>"; };
+		FAFA1074259FE1140087C943 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		FAFA1079259FE11D0087C943 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		FAFA107E259FE1460087C943 /* HomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBuilder.swift; sourceTree = "<group>"; };
+		FAFA1083259FE19B0087C943 /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
+		FAFA1088259FE34E0087C943 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		FAFA108E259FE77F0087C943 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,12 +183,14 @@
 		FAFA0F5D259DC3D20087C943 /* RijksMuseum */ = {
 			isa = PBXGroup;
 			children = (
+				FAFA106D259FE0CB0087C943 /* UI */,
 				FAFA0FF3259DFEE50087C943 /* Support Files */,
 				FAFA101D259FAD690087C943 /* Services */,
 				FAFA0FBF259DE9A00087C943 /* Entities */,
 				FAFA0FBE259DE9A00087C943 /* Database */,
 				FAFA0FC0259DE9A00087C943 /* Network */,
 				FAFA0FEE259DFDD60087C943 /* Constants.swift */,
+				FAFA1083259FE19B0087C943 /* AppAssembly.swift */,
 				FAFA0F62259DC3D20087C943 /* ViewController.swift */,
 				FAFA0F67259DC3D50087C943 /* Assets.xcassets */,
 			);
@@ -295,6 +311,35 @@
 				FAFA105D259FDDFE0087C943 /* single_art_object.json */,
 			);
 			path = Responses;
+			sourceTree = "<group>";
+		};
+		FAFA106D259FE0CB0087C943 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				FAFA108D259FE74F0087C943 /* Protocols */,
+				FAFA106E259FE0E30087C943 /* Home */,
+				FAFA1088259FE34E0087C943 /* AppCoordinator.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		FAFA106E259FE0E30087C943 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FAFA106F259FE10B0087C943 /* HomeContract.swift */,
+				FAFA1074259FE1140087C943 /* HomePresenter.swift */,
+				FAFA1079259FE11D0087C943 /* HomeViewController.swift */,
+				FAFA107E259FE1460087C943 /* HomeBuilder.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		FAFA108D259FE74F0087C943 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				FAFA108E259FE77F0087C943 /* View.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -535,17 +580,24 @@
 				FAFA0F63259DC3D20087C943 /* ViewController.swift in Sources */,
 				FAFA0FC7259DE9C80087C943 /* ArtObjectDetails.swift in Sources */,
 				FAFA0FD9259DEA210087C943 /* Session.swift in Sources */,
+				FAFA107A259FE11D0087C943 /* HomeViewController.swift in Sources */,
 				FAFA1020259FB18F0087C943 /* ArtObjectsService.swift in Sources */,
+				FAFA108F259FE77F0087C943 /* View.swift in Sources */,
 				FAFA1011259FA7A00087C943 /* API.swift in Sources */,
+				FAFA107F259FE1460087C943 /* HomeBuilder.swift in Sources */,
 				FAFA1040259FD1030087C943 /* ArtObjectsNetwork.swift in Sources */,
 				FAFA1045259FD10B0087C943 /* ArtObjectsDatabase.swift in Sources */,
 				FAFA0FC2259DE9BB0087C943 /* ArtObject.swift in Sources */,
 				FAFA1019259FA8A50087C943 /* ArtObjectsAPI.swift in Sources */,
+				FAFA1084259FE19B0087C943 /* AppAssembly.swift in Sources */,
+				FAFA1089259FE34E0087C943 /* AppCoordinator.swift in Sources */,
 				FAFA104B259FD2990087C943 /* ArtObjectsSearchResponse.swift in Sources */,
 				FAFA0FF5259DFF070087C943 /* SessionError.swift in Sources */,
 				FAFA0F5F259DC3D20087C943 /* AppDelegate.swift in Sources */,
+				FAFA1070259FE10B0087C943 /* HomeContract.swift in Sources */,
 				FAFA0FCC259DE9D80087C943 /* ArtObjectJSON.swift in Sources */,
 				FAFA0FEF259DFDD60087C943 /* Constants.swift in Sources */,
+				FAFA1075259FE1140087C943 /* HomePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
