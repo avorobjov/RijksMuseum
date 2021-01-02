@@ -14,6 +14,7 @@ disabled_rules:
     - identifier_name
 #   - force_cast
 #   - nesting
+    - opening_brace
 
     # temporary disable
 #   - vertical_whitespace_between_cases
@@ -64,7 +65,7 @@ disabled_rules:
 #    - redundant_string_enum_value
 #    - overridden_super_call
 #    - large_tuple
-#    - unavailable_function
+    - unavailable_function
 #    - class_delegate_protocol
 #    - first_where
 #    - vertical_parameter_alignment

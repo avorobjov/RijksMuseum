@@ -8,7 +8,7 @@
 import Foundation
 
 enum Constants {
-    static let defaultPageSize: Int = 20
+    static let defaultPageSize: Int = 50
 
     static let rijksMuseumApiKey = "acJ2KK7X"
 }

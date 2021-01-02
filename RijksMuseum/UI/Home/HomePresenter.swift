@@ -21,8 +21,30 @@ final class HomePresenterImpl {
     }
 
     func viewDidAttach() {
+        updateObjects()
     }
 }
 
 extension HomePresenterImpl: HomePresenter {
+}
+
+private extension HomePresenterImpl {
+    func updateObjects() {
+        artObjectsService.loadHome { result in
+            do {
+                let items = try result.get().map {
+                    ArtObjectCell.ViewModel(
+                        imageURL: $0.imageURL,
+                        title: $0.title,
+                        author: $0.author)
+                }
+
+                self.view?.show(items: items)
+            }
+            catch {
+                self.view?.presentMessage(title: "Failed to load data",
+                                          message: error.localizedDescription)
+            }
+        }
+    }
 }

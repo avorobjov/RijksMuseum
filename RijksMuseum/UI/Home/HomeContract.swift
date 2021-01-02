@@ -7,8 +7,10 @@
 
 import Foundation
 
-protocol HomePresenter {
+protocol HomePresenter: Presenter {
+    var view: HomeView? { get set }
 }
 
-protocol HomeView: View {
+protocol HomeView: View, MessagePresenting {
+    func show(items: [ArtObjectCell.ViewModel])
 }

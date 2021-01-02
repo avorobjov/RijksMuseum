@@ -26,8 +26,19 @@ extension ArtObjectsAPI: API {
 
     var parameters: Parameters {
         switch self {
+        case .home:
+            return [
+                "toppieces": "True",
+                "imgonly": "True",
+                "ps": Constants.defaultPageSize,
+            ]
+
         case .search(let query):
-            return ["q": query]
+            return [
+                "q": query,
+                "imgonly": "True",
+                "ps": Constants.defaultPageSize,
+            ]
 
         default:
             return [:]
