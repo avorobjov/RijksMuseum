@@ -9,6 +9,9 @@ import Foundation
 
 protocol HomePresenter: Presenter {
     var view: HomeView? { get set }
+
+    func search(query: String?)
+    func cancelSearch()
 }
 
 protocol HomeView: View, MessagePresenting {

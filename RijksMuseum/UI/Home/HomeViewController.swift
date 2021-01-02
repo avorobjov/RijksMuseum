@@ -32,6 +32,15 @@ final class HomeViewController: UIViewController {
         title = "Home"
         view.backgroundColor = .systemBackground
 
+        // Search controller
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.placeholder = "Search"
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchResultsUpdater = self
+        searchController.delegate = self
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = true
+
         collectionView.register(ArtObjectCell.nib(),
                                 forCellWithReuseIdentifier: ArtObjectCell.reuseIdentifier)
 
@@ -83,5 +92,17 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         let itemWidth = (width - (CGFloat(columns) - 1) * Self.margin) / CGFloat(columns)
 
         return CGSize(width: itemWidth, height: itemWidth + 30)
+    }
+}
+
+extension HomeViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        presenter.search(query: searchController.searchBar.text)
+    }
+}
+
+extension HomeViewController: UISearchControllerDelegate {
+    func willDismissSearchController(_ searchController: UISearchController) {
+        presenter.cancelSearch()
     }
 }

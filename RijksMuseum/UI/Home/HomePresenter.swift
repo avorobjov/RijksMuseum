@@ -26,25 +26,46 @@ final class HomePresenterImpl {
 }
 
 extension HomePresenterImpl: HomePresenter {
+    func search(query: String?) {
+        updateSearch(query: query)
+    }
+
+    func cancelSearch() {
+        updateObjects()
+    }
 }
 
 private extension HomePresenterImpl {
     func updateObjects() {
-        artObjectsService.loadHome { result in
-            do {
-                let items = try result.get().map {
-                    ArtObjectCell.ViewModel(
-                        imageURL: $0.imageURL,
-                        title: $0.title,
-                        author: $0.author)
-                }
+        artObjectsService.loadHome { [weak self] result in
+            self?.displayArtObjectsResult(result: result)
+        }
+    }
 
-                self.view?.show(items: items)
+    func updateSearch(query: String?) {
+        guard let query = query, query.count > 2 else {
+            return
+        }
+
+        artObjectsService.search(query: query) { [weak self] result in
+            self?.displayArtObjectsResult(result: result)
+        }
+    }
+
+    func displayArtObjectsResult(result: ArtObjectsResult) {
+        do {
+            let items = try result.get().map {
+                ArtObjectCell.ViewModel(
+                    imageURL: $0.imageURL,
+                    title: $0.title,
+                    author: $0.author)
             }
-            catch {
-                self.view?.presentMessage(title: "Failed to load data",
-                                          message: error.localizedDescription)
-            }
+
+            self.view?.show(items: items)
+        }
+        catch {
+            self.view?.presentMessage(title: "Failed to load data",
+                                      message: error.localizedDescription)
         }
     }
 }
