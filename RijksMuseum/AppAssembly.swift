@@ -13,9 +13,11 @@ protocol AppAssembly {
 
 final class AppAssemblyImpl {
     private let session: Session
+    private let database: Database
 
-    init() {
+    init(database: Database) {
         self.session = SessionImpl(key: Constants.rijksMuseumApiKey)
+        self.database = database
     }
 }
 

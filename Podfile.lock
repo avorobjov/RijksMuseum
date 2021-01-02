@@ -1,22 +1,28 @@
 PODS:
   - Alamofire (5.4.1)
+  - GRDB.swift (5.2.0):
+    - GRDB.swift/standard (= 5.2.0)
+  - GRDB.swift/standard (5.2.0)
   - SDWebImage (5.10.2):
     - SDWebImage/Core (= 5.10.2)
   - SDWebImage/Core (5.10.2)
 
 DEPENDENCIES:
   - Alamofire
+  - GRDB.swift
   - SDWebImage
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - GRDB.swift
     - SDWebImage
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  GRDB.swift: f44f61fd032e176e3aadb1f70e15656dc50ca018
   SDWebImage: b969dcfc02c40a5da71eac0b03b8f1a0c794a86f
 
-PODFILE CHECKSUM: 9e5393a756978cc3dbbd852c94c3d08f8021f1a1
+PODFILE CHECKSUM: 98082d6f18af9ea078912411f7afd1cd651b77f7
 
 COCOAPODS: 1.10.0

@@ -18,7 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         assert(window == nil, "remove storyboard from Info.plist")
 
-        let assembly = AppAssemblyImpl()
+        guard let database = openDatabase() else {
+            return false
+        }
+
+        let assembly = AppAssemblyImpl(database: database)
         appCoordinator = AppCoordinator(assembly: assembly)
 
         let window = UIWindow(frame: UIScreen.main.bounds)
@@ -27,5 +31,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.makeKeyAndVisible()
 
         return true
+    }
+
+    private func openDatabase() -> Database? {
+        do {
+            let databaseURL = try DatabaseImpl.defaultDatabaseURL()
+            if let database = try? DatabaseImpl(databaseURL: databaseURL) {
+                return database
+            }
+
+            print("Database: deleted")
+            // Failed to open caches database, try to recoved by deleting it
+            try FileManager.default.removeItem(at: databaseURL)
+
+            // Make another attempt
+            return try DatabaseImpl(databaseURL: databaseURL)
+        }
+        catch {
+            print("Database: open error \(error)")
+        }
+
+        return nil
     }
 }

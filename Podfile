@@ -4,9 +4,12 @@ use_frameworks!
 inhibit_all_warnings!
 
 def libraries
-    #networking
+    # networking
     pod 'Alamofire'
     pod 'SDWebImage'
+
+    # database
+    pod 'GRDB.swift'
 end
 
 target 'RijksMuseum' do
