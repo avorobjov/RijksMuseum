@@ -78,6 +78,6 @@ class ArtObjectsServiceTests: XCTestCase {
     private func createServiceWithError(_ error: SessionError) -> ArtObjectsService {
         let session = MockSession { $0(.failure(error)) }
         let network = ArtObjectsNetworkImpl(session: session)
-        return ArtObjectsServiceImpl(network: network)
+        return ArtObjectsServiceImpl(network: network, database: MockArtObjectsDatabase())
     }
 }

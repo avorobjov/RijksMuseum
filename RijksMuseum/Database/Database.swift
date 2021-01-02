@@ -44,6 +44,7 @@ class DatabaseImpl: Database {
                 t.column(ArtObjectRecord.Columns.detailsURL.name, .text).notNull()
                 t.column(ArtObjectRecord.Columns.webURL.name, .text)
                 t.column(ArtObjectRecord.Columns.isHomeItem.name, .boolean).defaults(to: false)
+                t.column(ArtObjectRecord.Columns.fetchDate.name, .datetime).notNull()
             }
         }
 

@@ -16,6 +16,7 @@ struct ArtObjectRecord {
     let detailsURL: String
     let webURL: String?
     let isHomeItem: Bool
+    let fetchDate: Date
 }
 
 extension ArtObjectRecord: Codable {
@@ -25,13 +26,13 @@ extension ArtObjectRecord: FetchableRecord, PersistableRecord, TableRecord {
     public static let databaseTableName = "art_objects"
 
     enum Columns: String, ColumnExpression {
-        case id, objectNumber, title, author, imageURL, detailsURL, webURL, isHomeItem
+        case id, objectNumber, title, author, imageURL, detailsURL, webURL, isHomeItem, fetchDate
     }
 }
 
 // MARK: - Convertors
 extension ArtObjectRecord {
-    init(_ model: ArtObject, isHomeItem: Bool) {
+    init(_ model: ArtObject, isHomeItem: Bool, fetchDate: Date = Date()) {
         id = model.id.rawValue
         objectNumber = model.objectNumber.rawValue
         title = model.title
@@ -40,6 +41,7 @@ extension ArtObjectRecord {
         detailsURL = model.detailsURL.absoluteString
         webURL = model.webURL?.absoluteString
         self.isHomeItem = isHomeItem
+        self.fetchDate = fetchDate
     }
 
     func toModel() -> ArtObject? {

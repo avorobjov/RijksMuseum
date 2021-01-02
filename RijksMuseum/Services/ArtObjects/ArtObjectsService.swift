@@ -17,6 +17,16 @@ enum ArtObjectsServiceError: LocalizedError {
     case noInternetConnection
     case commonError
 
+    var errorDescription: String? {
+        switch self {
+        case .noInternetConnection:
+            return "You are not connected to Internet"
+
+        case .commonError:
+            return "Server error"
+        }
+    }
+
     init(sessionError: SessionError) {
         if sessionError == .noInternetConnection {
             self = .noInternetConnection
@@ -28,31 +38,52 @@ enum ArtObjectsServiceError: LocalizedError {
 }
 
 protocol ArtObjectsService {
+    /// Load home items from database and server
+    /// - parameter completion: The closure called multiple times: first if cache is available and then when server response is received
     func loadHome(completion: @escaping ArtObjectsCompletion)
+
+    /// Search items in database and on server
+    /// - parameter query: Search query, minimum length is 2 symbols
+    /// - parameter completion: The closure called multiple times: first if cache is available and then when server response is received
     func search(query: String, completion: @escaping ArtObjectsCompletion)
+
+    /// Load art object details from database or server
+    /// - parameter query: Search query, minimum length is 2 symbols
+    /// - parameter completion: If cached data is available, returns it. Otherwise loads data from server
     func details(objectNumber: ArtObjectNumber, completion: @escaping ArtObjectDetailsCompletion)
 }
 
 final class ArtObjectsServiceImpl {
     private let network: ArtObjectsNetwork
+    private let database: ArtObjectsDatabase
 
-    init(network: ArtObjectsNetwork) {
+    init(network: ArtObjectsNetwork, database: ArtObjectsDatabase) {
         self.network = network
+        self.database = database
     }
 }
 
 extension ArtObjectsServiceImpl: ArtObjectsService {
     func loadHome(completion: @escaping ArtObjectsCompletion) {
+        let items = database.readHomeItems(showOutdated: false)
+        if !items.isEmpty {
+            return completion(.success(items))
+        }
+
         network.fetchHome { result in
             do {
                 let objects = try result.get()
-
-                // TODO: store in db
-
+                self.database.saveHomeItems(objects)
                 completion(.success(objects))
             }
             catch SessionError.noInternetConnection {
-                completion(.failure(.noInternetConnection))
+                let cached = self.database.readHomeItems(showOutdated: true)
+                if !cached.isEmpty {
+                    completion(.success(cached))
+                }
+                else {
+                    completion(.failure(.noInternetConnection))
+                }
             }
             catch {
                 completion(.failure(.commonError))
@@ -64,13 +95,17 @@ extension ArtObjectsServiceImpl: ArtObjectsService {
         network.fetchSearch(query: query) { result in
             do {
                 let objects = try result.get()
-
-                // TODO: store in db
-
+                self.database.saveSearchItems(objects)
                 completion(.success(objects))
             }
             catch SessionError.noInternetConnection {
-                completion(.failure(.noInternetConnection))
+                let cached = self.database.searchItems(query: query)
+                if !cached.isEmpty {
+                    completion(.success(cached))
+                }
+                else {
+                    completion(.failure(.noInternetConnection))
+                }
             }
             catch {
                 completion(.failure(.commonError))

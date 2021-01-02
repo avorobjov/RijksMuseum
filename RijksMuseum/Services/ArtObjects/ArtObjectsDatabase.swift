@@ -9,7 +9,7 @@ import Foundation
 import GRDB
 
 protocol ArtObjectsDatabase {
-    func readHomeItems() -> [ArtObject]
+    func readHomeItems(showOutdated: Bool) -> [ArtObject]
     func saveHomeItems(_ items: [ArtObject])
 
     func searchItems(query: String) -> [ArtObject]
@@ -17,6 +17,13 @@ protocol ArtObjectsDatabase {
 }
 
 final class ArtObjectsDatabaseImpl {
+    static let cacheLifetimeSeconds: TimeInterval = 5 * 60  // 5 minutes
+
+    /// calculate the minimum date when cache is still valid
+    static func minimumFetchDate() -> Date {
+        return Date().addingTimeInterval(-cacheLifetimeSeconds)
+    }
+
     private let database: Database
 
     init(database: Database) {
@@ -25,11 +32,20 @@ final class ArtObjectsDatabaseImpl {
 }
 
 extension ArtObjectsDatabaseImpl: ArtObjectsDatabase {
-    func readHomeItems() -> [ArtObject] {
-        let records = try? database.queue.read { db in
-            try ArtObjectRecord
+    func readHomeItems(showOutdated: Bool) -> [ArtObject] {
+        let minFetchDate = Self.minimumFetchDate()
+
+        let records = try? database.queue.read { db -> [ArtObjectRecord] in
+            var query = ArtObjectRecord
                 .filter(ArtObjectRecord.Columns.isHomeItem == true)
-                .fetchAll(db)
+                .limit(Constants.defaultPageSize)
+
+            if !showOutdated {
+                query = query
+                    .filter(ArtObjectRecord.Columns.fetchDate >= minFetchDate)
+            }
+
+            return try query.fetchAll(db)
         }
 
         return (records ?? []).compactMap { $0.toModel() }

@@ -102,13 +102,13 @@ private extension DetailsViewController {
         scrollView.zoomScale = scrollView.minimumZoomScale
     }
 
-    /// update contentInset so that image is vertically centered in scrollView
+    /// update contentInset so that small images are centered in scrollView
     func centerImage() {
         let imageSize = scrollView.contentSize
         let scrollSize = scrollView.frame.inset(by: scrollView.safeAreaInsets).size
 
-        let x = max(0, (scrollSize.width - imageSize.width) / 2)
-        let y = max(0, (scrollSize.height - imageSize.height) / 2)
+        let x = max(0, scrollView.safeAreaInsets.left + (scrollSize.width - imageSize.width) / 2)
+        let y = max(0, scrollView.safeAreaInsets.top + (scrollSize.height - imageSize.height) / 2)
 
         scrollView.contentInset = UIEdgeInsets(top: y, left: x, bottom: 0, right: 0)
     }

@@ -24,6 +24,7 @@ final class AppAssemblyImpl {
 extension AppAssemblyImpl: AppAssembly {
     var artObjectsService: ArtObjectsService {
         let network = ArtObjectsNetworkImpl(session: session)
-        return ArtObjectsServiceImpl(network: network)
+        let db = ArtObjectsDatabaseImpl(database: database)
+        return ArtObjectsServiceImpl(network: network, database: db)
     }
 }
