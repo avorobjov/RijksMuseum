@@ -38,13 +38,16 @@ enum ArtObjectsServiceError: LocalizedError {
 }
 
 protocol ArtObjectsService {
-    /// Load home items from database and server
-    /// - parameter completion: The closure called multiple times: first if cache is available and then when server response is received
+    /// Load home items from database and server.
+    /// If cache is fresh enough, it is returned immediately, otherwise request is sent to the server
+    /// if no internet connection, cached data is returned even if it is old. if no cache is available, error is returned
+    /// - parameter completion: The closure will be called when result is available
     func loadHome(completion: @escaping ArtObjectsCompletion)
 
     /// Search items in database and on server
+    /// If no internet connection is available, database search result is returned
     /// - parameter query: Search query, minimum length is 2 symbols
-    /// - parameter completion: The closure called multiple times: first if cache is available and then when server response is received
+    /// - parameter completion: Request to the server is
     func search(query: String, completion: @escaping ArtObjectsCompletion)
 
     /// Load art object details from database or server

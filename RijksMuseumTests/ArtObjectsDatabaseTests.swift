@@ -37,15 +37,15 @@ class ArtObjectsDatabaseTests: XCTestCase {
 
     func testHome() throws {
         let db = ArtObjectsDatabaseImpl(database: database)
-        XCTAssertTrue(db.readHomeItems().isEmpty)
+        XCTAssertTrue(db.readHomeItems(showOutdated: false).isEmpty)
 
         db.saveHomeItems([model])
-        let items = db.readHomeItems()
+        let items = db.readHomeItems(showOutdated: false)
         XCTAssertEqual(items.count, 1)
 
         // test overwrite
         db.saveHomeItems([model])
-        let items2 = db.readHomeItems()
+        let items2 = db.readHomeItems(showOutdated: false)
         XCTAssertEqual(items2.count, 1)
 
         let converted = items2.first!

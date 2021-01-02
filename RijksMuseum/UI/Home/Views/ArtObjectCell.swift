@@ -35,6 +35,7 @@ class ArtObjectCell: UICollectionViewCell {
         super.awakeFromNib()
 
         imageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        setupAccessibility()
     }
 
     private func updateUI() {
@@ -46,5 +47,11 @@ class ArtObjectCell: UICollectionViewCell {
                               placeholderImage: nil,
                               options: .continueInBackground,
                               context: [.imageTransformer: transformer])
+    }
+
+    private func setupAccessibility() {
+        imageView.accessibilityIdentifier = "cell.image"
+        titleLabel.accessibilityIdentifier = "cell.title"
+        authorLabel.accessibilityIdentifier = "cell.author"
     }
 }

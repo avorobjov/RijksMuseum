@@ -19,6 +19,7 @@ class AppCoordinator {
         let builder = HomeBuilder(assembly: assembly)
         let home = builder.build(delegate: self)
         let nc = UINavigationController(rootViewController: home)
+        nc.navigationBar.accessibilityIdentifier = "main.navbar"
         window.rootViewController = nc
         navigation = nc
     }

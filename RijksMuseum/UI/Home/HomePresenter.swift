@@ -18,6 +18,8 @@ final class HomePresenterImpl {
     private weak var delegate: HomePresenterDelegate?
 
     private var displayedObjects: [ArtObject] = []
+    private var lastQuery: String?
+    private var queryTimer: Timer?
 
     init(artObjectsService: ArtObjectsService, delegate: HomePresenterDelegate) {
         self.artObjectsService = artObjectsService
@@ -33,7 +35,13 @@ final class HomePresenterImpl {
 
 extension HomePresenterImpl: HomePresenter {
     func search(query: String?) {
-        updateSearch(query: query)
+        lastQuery = query
+        queryTimer?.invalidate()
+        queryTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { [weak self] _ in
+            if let query = self?.lastQuery {
+                self?.updateSearch(query: query)
+            }
+        }
     }
 
     func cancelSearch() {

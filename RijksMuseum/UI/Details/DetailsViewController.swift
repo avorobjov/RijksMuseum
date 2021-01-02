@@ -32,6 +32,8 @@ final class DetailsViewController: UIViewController {
 
         imageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
 
+        setupAccessibility()
+
         presenter.view = self
     }
 
@@ -111,5 +113,11 @@ private extension DetailsViewController {
         let y = max(0, scrollView.safeAreaInsets.top + (scrollSize.height - imageSize.height) / 2)
 
         scrollView.contentInset = UIEdgeInsets(top: y, left: x, bottom: 0, right: 0)
+    }
+
+    func setupAccessibility() {
+        scrollView.accessibilityIdentifier = "details.scrollview"
+        imageView.accessibilityIdentifier = "details.image"
+        detailsView.accessibilityIdentifier = "details.text"
     }
 }

@@ -34,6 +34,7 @@ final class HomeViewController: UIViewController {
         // Search controller
         setupSearchController()
         setupCollectionView()
+        setupAccessibility()
 
         presenter.view = self
     }
@@ -118,5 +119,10 @@ private extension HomeViewController {
             flow.minimumInteritemSpacing = Self.margin
             flow.sectionInset = UIEdgeInsets(top: 0, left: Self.margin, bottom: 0, right: Self.margin)
         }
+    }
+
+    func setupAccessibility() {
+        collectionView.accessibilityIdentifier = "home.collection"
+        navigationItem.searchController?.searchBar.searchTextField.accessibilityIdentifier = "home.searchbar"
     }
 }

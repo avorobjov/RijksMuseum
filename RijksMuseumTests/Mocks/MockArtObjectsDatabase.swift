@@ -12,7 +12,7 @@ class MockArtObjectsDatabase: ArtObjectsDatabase {
     var home: [ArtObject] = []
     var search: [ArtObject] = []
 
-    func readHomeItems() -> [ArtObject] {
+    func readHomeItems(showOutdated: Bool) -> [ArtObject] {
         return home
     }
 
