@@ -55,6 +55,10 @@ extension SessionImpl: Session {
             return completion(.failure(.badRequest))
         }
 
+        if let path = request.url?.absoluteString {
+            print("Session: loading \(path)")
+        }
+
         AF.request(request)
             .validate()
             .responseData { response in

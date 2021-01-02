@@ -20,11 +20,51 @@ class ArtObjectsServiceTests: XCTestCase {
                 XCTAssert(false, "Should return error")
             }
         }
+
+        service.search(query: "asd") { result in
+            switch result {
+            case .failure(let error):
+                XCTAssertEqual(error, .noInternetConnection)
+
+            case .success:
+                XCTAssert(false, "Should return error")
+            }
+        }
+
+        service.details(id: ArtObjectId(stringLiteral: "asd")) { result in
+            switch result {
+            case .failure(let error):
+                XCTAssertEqual(error, .noInternetConnection)
+
+            case .success:
+                XCTAssert(false, "Should return error")
+            }
+        }
     }
 
     func testError_other() throws {
         let service = createServiceWithError(.connectionError)
         service.loadHome { result in
+            switch result {
+            case .failure(let error):
+                XCTAssertEqual(error, .commonError)
+
+            case .success:
+                XCTAssert(false, "Should return error")
+            }
+        }
+
+        service.search(query: "asd") { result in
+            switch result {
+            case .failure(let error):
+                XCTAssertEqual(error, .commonError)
+
+            case .success:
+                XCTAssert(false, "Should return error")
+            }
+        }
+
+        service.details(id: ArtObjectId(stringLiteral: "asd")) { result in
             switch result {
             case .failure(let error):
                 XCTAssertEqual(error, .commonError)

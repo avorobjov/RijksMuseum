@@ -10,6 +10,9 @@ import Foundation
 typealias ArtObjectsResult = Result<[ArtObject], ArtObjectsServiceError>
 typealias ArtObjectsCompletion = (ArtObjectsResult) -> Void
 
+typealias ArtObjectDetailsResult = Result<ArtObjectDetails, ArtObjectsServiceError>
+typealias ArtObjectDetailsCompletion = (ArtObjectDetailsResult) -> Void
+
 enum ArtObjectsServiceError: LocalizedError {
     case noInternetConnection
     case commonError
@@ -27,6 +30,7 @@ enum ArtObjectsServiceError: LocalizedError {
 protocol ArtObjectsService {
     func loadHome(completion: @escaping ArtObjectsCompletion)
     func search(query: String, completion: @escaping ArtObjectsCompletion)
+    func details(id: ArtObjectId, completion: @escaping ArtObjectDetailsCompletion)
 }
 
 final class ArtObjectsServiceImpl {
@@ -64,6 +68,24 @@ extension ArtObjectsServiceImpl: ArtObjectsService {
                 // TODO: store in db
 
                 completion(.success(objects))
+            }
+            catch SessionError.noInternetConnection {
+                completion(.failure(.noInternetConnection))
+            }
+            catch {
+                completion(.failure(.commonError))
+            }
+        }
+    }
+
+    func details(id: ArtObjectId, completion: @escaping ArtObjectDetailsCompletion) {
+        network.fetchDetails(id: id) { result in
+            do {
+                let details = try result.get()
+
+                // TODO: store in db
+
+                completion(.success(details))
             }
             catch SessionError.noInternetConnection {
                 completion(.failure(.noInternetConnection))
