@@ -13,4 +13,5 @@ protocol DetailsPresenter: Presenter {
 
 protocol DetailsView: View, MessagePresenting, TitleSettable {
     func show(image: URL?)
+    func showDescription(text: String?)
 }

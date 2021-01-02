@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailsViewController" customModule="RijksMuseum" customModuleProvider="target">
             <connections>
+                <outlet property="detailsView" destination="vzJ-vy-9KG" id="ZVe-S0-UE2"/>
                 <outlet property="imageView" destination="Pib-jv-LPm" id="NXC-B9-lDI"/>
                 <outlet property="scrollView" destination="dj3-RP-gHj" id="Q9R-Vc-LZd"/>
                 <outlet property="view" destination="iN0-l3-epB" id="cFn-Zd-Qe0"/>
@@ -21,8 +22,8 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="always" maximumZoomScale="2" translatesAutoresizingMaskIntoConstraints="NO" id="dj3-RP-gHj">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="2" translatesAutoresizingMaskIntoConstraints="NO" id="dj3-RP-gHj">
+                    <rect key="frame" x="0.0" y="44" width="414" height="708"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="200" translatesAutoresizingMaskIntoConstraints="NO" id="Pib-jv-LPm">
                             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
@@ -40,19 +41,36 @@
                         <outlet property="delegate" destination="-1" id="eTp-WX-Hl5"/>
                     </connections>
                 </scrollView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vzJ-vy-9KG">
+                    <rect key="frame" x="0.0" y="752" width="414" height="110"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="110" id="iyF-oa-7Yg"/>
+                    </constraints>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <color key="textColor" systemColor="labelColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="dj3-RP-gHj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Kik-df-Hde"/>
+                <constraint firstItem="vzJ-vy-9KG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="8wV-Cr-rMA"/>
+                <constraint firstItem="dj3-RP-gHj" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Kik-df-Hde"/>
                 <constraint firstAttribute="trailing" secondItem="dj3-RP-gHj" secondAttribute="trailing" id="Lju-Ux-tAt"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="vzJ-vy-9KG" secondAttribute="bottom" id="TUn-fc-ubf"/>
+                <constraint firstItem="vzJ-vy-9KG" firstAttribute="top" secondItem="dj3-RP-gHj" secondAttribute="bottom" id="efk-3x-YTI"/>
                 <constraint firstItem="dj3-RP-gHj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="iM2-mP-jhF"/>
-                <constraint firstAttribute="bottom" secondItem="dj3-RP-gHj" secondAttribute="bottom" id="xhA-EG-5CX"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vzJ-vy-9KG" secondAttribute="trailing" id="zGo-10-9gZ"/>
             </constraints>
             <point key="canvasLocation" x="65" y="88"/>
         </view>
     </objects>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
