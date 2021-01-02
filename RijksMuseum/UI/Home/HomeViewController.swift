@@ -29,25 +29,11 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Home"
         view.backgroundColor = .systemBackground
 
         // Search controller
-        let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchBar.placeholder = "Search"
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchResultsUpdater = self
-        searchController.delegate = self
-        navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = true
-
-        collectionView.register(ArtObjectCell.nib(),
-                                forCellWithReuseIdentifier: ArtObjectCell.reuseIdentifier)
-
-        if let flow = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            flow.minimumInteritemSpacing = Self.margin
-            flow.sectionInset = UIEdgeInsets(top: 0, left: Self.margin, bottom: 0, right: Self.margin)
-        }
+        setupSearchController()
+        setupCollectionView()
 
         presenter.view = self
     }
@@ -87,11 +73,16 @@ extension HomeViewController: UICollectionViewDataSource {
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
-        let width = (collectionView.frame.width - 2 * Self.margin)
+        let insets = collectionView.adjustedContentInset
+        let width = (collectionView.frame.width - 2 * Self.margin - insets.left - insets.right)
         let columns: Int = max(2, Int(width) / 200)
         let itemWidth = (width - (CGFloat(columns) - 1) * Self.margin) / CGFloat(columns)
 
         return CGSize(width: itemWidth, height: itemWidth + 30)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presenter.showDetails(at: indexPath.item)
     }
 }
 
@@ -104,5 +95,28 @@ extension HomeViewController: UISearchResultsUpdating {
 extension HomeViewController: UISearchControllerDelegate {
     func willDismissSearchController(_ searchController: UISearchController) {
         presenter.cancelSearch()
+    }
+}
+
+private extension HomeViewController {
+    func setupSearchController() {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.placeholder = "Search"
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchResultsUpdater = self
+        searchController.delegate = self
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = true
+    }
+
+    func setupCollectionView() {
+        collectionView.contentInsetAdjustmentBehavior = .always
+        collectionView.register(ArtObjectCell.nib(),
+                                forCellWithReuseIdentifier: ArtObjectCell.reuseIdentifier)
+
+        if let flow = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            flow.minimumInteritemSpacing = Self.margin
+            flow.sectionInset = UIEdgeInsets(top: 0, left: Self.margin, bottom: 0, right: Self.margin)
+        }
     }
 }

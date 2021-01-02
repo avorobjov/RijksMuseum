@@ -11,5 +11,6 @@ protocol DetailsPresenter: Presenter {
     var view: DetailsView? { get set }
 }
 
-protocol DetailsView: View, MessagePresenting {
+protocol DetailsView: View, MessagePresenting, TitleSettable {
+    func show(image: URL?)
 }

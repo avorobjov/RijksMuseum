@@ -10,7 +10,7 @@ import Foundation
 protocol ArtObjectsNetwork {
     func fetchHome(completion: @escaping SessionCompletion<[ArtObject]>)
     func fetchSearch(query: String, completion: @escaping SessionCompletion<[ArtObject]>)
-    func fetchDetails(id: ArtObjectId, completion: @escaping SessionCompletion<ArtObjectDetails>)
+    func fetchDetails(objectNumber: ArtObjectNumber, completion: @escaping SessionCompletion<ArtObjectDetails>)
 }
 
 final class ArtObjectsNetworkImpl {
@@ -50,8 +50,8 @@ extension ArtObjectsNetworkImpl: ArtObjectsNetwork {
         }
     }
 
-    func fetchDetails(id: ArtObjectId, completion: @escaping SessionCompletion<ArtObjectDetails>) {
-        let api = ArtObjectsAPI.details(id: id)
+    func fetchDetails(objectNumber: ArtObjectNumber, completion: @escaping SessionCompletion<ArtObjectDetails>) {
+        let api = ArtObjectsAPI.details(objectNumber: objectNumber)
         session.fetch(ArtObjectDetailsResponse.self, api) { result in
             switch result {
             case .success(let response):

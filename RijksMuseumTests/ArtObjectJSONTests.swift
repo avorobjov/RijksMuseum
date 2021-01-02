@@ -10,6 +10,7 @@ import XCTest
 
 class ArtObjectJSONTests: XCTestCase {
     static let identifier = "identifier"
+    static let objectNumber = "objectNumber"
     static let title = "test object title"
     static let author = "test author"
     static let detailsURL = "http://details.url/"
@@ -22,6 +23,7 @@ class ArtObjectJSONTests: XCTestCase {
         XCTAssertNotNil(model)
 
         XCTAssertEqual(model!.id.rawValue, Self.identifier)
+        XCTAssertEqual(model!.objectNumber.rawValue, Self.objectNumber)
         XCTAssertEqual(model!.title, "")
         XCTAssertEqual(model!.author, "")
         XCTAssertEqual(model!.detailsURL.absoluteString, Self.detailsURL)
@@ -35,6 +37,7 @@ class ArtObjectJSONTests: XCTestCase {
         XCTAssertNotNil(model)
 
         XCTAssertEqual(model!.id.rawValue, Self.identifier)
+        XCTAssertEqual(model!.objectNumber.rawValue, Self.objectNumber)
         XCTAssertEqual(model!.title, Self.title)
         XCTAssertEqual(model!.author, Self.author)
         XCTAssertEqual(model!.detailsURL.absoluteString, Self.detailsURL)
@@ -44,6 +47,7 @@ class ArtObjectJSONTests: XCTestCase {
 
     func testOptionalParameters() {
         XCTAssertNil(createJson(id: "").toModel())
+        XCTAssertNil(createJson(objectNumber: "").toModel())
         XCTAssertNotNil(createJson(title: nil).toModel())
         XCTAssertNotNil(createJson(author: nil).toModel())
         XCTAssertNil(createJson(details: nil).toModel())
@@ -52,10 +56,11 @@ class ArtObjectJSONTests: XCTestCase {
     }
 
     // MARK: - Helpers
-    func createJson(id: String = identifier, title: String? = title, author: String? = author,
+    func createJson(id: String = identifier, objectNumber: String = objectNumber, title: String? = title, author: String? = author,
                     details: String? = detailsURL, web: String? = webURL, image: String? = imageURL) -> ArtObjectJSON
     {
-        return ArtObjectJSON(id: id, title: title, principalOrFirstMaker: author,
+        return ArtObjectJSON(id: id, objectNumber: objectNumber,
+                             title: title, principalOrFirstMaker: author,
                              links: ArtObjectJSON.Links(details: details, web: web),
                              webImage: ArtObjectJSON.Image(url: image))
     }

@@ -23,7 +23,7 @@ class ArtObjectCell: UICollectionViewCell {
 
     var viewModel: ViewModel? {
         didSet {
-            updateUI(oldValue: oldValue)
+            updateUI()
         }
     }
 
@@ -37,23 +37,14 @@ class ArtObjectCell: UICollectionViewCell {
         imageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
     }
 
-    private func updateUI(oldValue: ViewModel?) {
+    private func updateUI() {
         titleLabel.text = viewModel?.title
         authorLabel.text = viewModel?.author
 
-        var imageChanged = true
-        if
-            let oldImageURL = oldValue?.imageURL,
-            let newImageURL = viewModel?.imageURL
-        {
-            imageChanged = !(oldImageURL.absoluteString == newImageURL.absoluteString)
-        }
-
-        if imageChanged {
-            let transformer = SDImageResizingTransformer(size: CGSize(width: 300, height: 300), scaleMode: .aspectFill)
-            imageView.sd_setImage(with: viewModel?.imageURL,
-                                  placeholderImage: nil,
-                                  context: [.imageTransformer: transformer])
-        }
+        let transformer = SDImageResizingTransformer(size: CGSize(width: 200, height: 200), scaleMode: .aspectFill)
+        imageView.sd_setImage(with: viewModel?.imageURL,
+                              placeholderImage: nil,
+                              options: .continueInBackground,
+                              context: [.imageTransformer: transformer])
     }
 }

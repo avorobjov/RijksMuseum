@@ -10,8 +10,8 @@ import UIKit
 struct HomeBuilder {
     let assembly: AppAssembly
 
-    func build() -> UIViewController {
-        let presenter = HomePresenterImpl(artObjectsService: assembly.artObjectsService)
+    func build(delegate: HomePresenterDelegate) -> UIViewController {
+        let presenter = HomePresenterImpl(artObjectsService: assembly.artObjectsService, delegate: delegate)
         return HomeViewController(presenter: presenter)
     }
 }

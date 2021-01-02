@@ -17,9 +17,17 @@ class AppCoordinator {
 
     func start(in window: UIWindow) {
         let builder = HomeBuilder(assembly: assembly)
-        let home = builder.build()
+        let home = builder.build(delegate: self)
         let nc = UINavigationController(rootViewController: home)
         window.rootViewController = nc
         navigation = nc
+    }
+}
+
+extension AppCoordinator: HomePresenterDelegate {
+    func showDetails(artObject: ArtObject) {
+        let builder = DetailsBuilder(assembly: assembly)
+        let details = builder.build(artObject: artObject)
+        navigation?.show(details, sender: nil)
     }
 }

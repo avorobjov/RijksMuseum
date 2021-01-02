@@ -55,6 +55,9 @@
 		FAFA10C825A0A81C0087C943 /* ArtObjectId.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA10C725A0A81C0087C943 /* ArtObjectId.swift */; };
 		FAFA10D025A0BF0C0087C943 /* ArtObjectDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA10CF25A0BF0C0087C943 /* ArtObjectDetailsResponse.swift */; };
 		FAFA10D825A0C0A40087C943 /* details_night_watch.json in Resources */ = {isa = PBXBuildFile; fileRef = FAFA10D725A0C0A40087C943 /* details_night_watch.json */; };
+		FAFA10DD25A0CFC80087C943 /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAFA10DC25A0CFC80087C943 /* DetailsViewController.xib */; };
+		FAFA10E225A0DC7A0087C943 /* TitleSettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA10E125A0DC7A0087C943 /* TitleSettable.swift */; };
+		FAFA10E725A0E12A0087C943 /* ArtObjectNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA10E625A0E12A0087C943 /* ArtObjectNumber.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +136,9 @@
 		FAFA10C725A0A81C0087C943 /* ArtObjectId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectId.swift; sourceTree = "<group>"; };
 		FAFA10CF25A0BF0C0087C943 /* ArtObjectDetailsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectDetailsResponse.swift; sourceTree = "<group>"; };
 		FAFA10D725A0C0A40087C943 /* details_night_watch.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = details_night_watch.json; sourceTree = "<group>"; };
+		FAFA10DC25A0CFC80087C943 /* DetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
+		FAFA10E125A0DC7A0087C943 /* TitleSettable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSettable.swift; sourceTree = "<group>"; };
+		FAFA10E625A0E12A0087C943 /* ArtObjectNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectNumber.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +264,7 @@
 				FAFA0FC1259DE9BB0087C943 /* ArtObject.swift */,
 				FAFA0FC6259DE9C80087C943 /* ArtObjectDetails.swift */,
 				FAFA10C725A0A81C0087C943 /* ArtObjectId.swift */,
+				FAFA10E625A0E12A0087C943 /* ArtObjectNumber.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -370,6 +377,7 @@
 				FAFA108E259FE77F0087C943 /* View.swift */,
 				FAFA10A825A084EE0087C943 /* Presenter.swift */,
 				FAFA109325A07CED0087C943 /* MessagePresenting.swift */,
+				FAFA10E125A0DC7A0087C943 /* TitleSettable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -389,6 +397,7 @@
 				FAFA10AE25A09B0F0087C943 /* DetailsContract.swift */,
 				FAFA10B325A09B180087C943 /* DetailsPresenter.swift */,
 				FAFA10B825A09B250087C943 /* DetailsViewController.swift */,
+				FAFA10DC25A0CFC80087C943 /* DetailsViewController.xib */,
 				FAFA10BD25A09B2D0087C943 /* DetailsBuilder.swift */,
 			);
 			path = Details;
@@ -504,6 +513,7 @@
 			files = (
 				FAFA0F6B259DC3D50087C943 /* LaunchScreen.storyboard in Resources */,
 				FAFA0F68259DC3D50087C943 /* Assets.xcassets in Resources */,
+				FAFA10DD25A0CFC80087C943 /* DetailsViewController.xib in Resources */,
 				FAFA109C25A07E230087C943 /* ArtObjectCell.xib in Resources */,
 				FAFA10A425A082D40087C943 /* HomeViewController.xib in Resources */,
 			);
@@ -652,8 +662,10 @@
 				FAFA1084259FE19B0087C943 /* AppAssembly.swift in Sources */,
 				FAFA1089259FE34E0087C943 /* AppCoordinator.swift in Sources */,
 				FAFA104B259FD2990087C943 /* ArtObjectsSearchResponse.swift in Sources */,
+				FAFA10E225A0DC7A0087C943 /* TitleSettable.swift in Sources */,
 				FAFA109B25A07E230087C943 /* ArtObjectCell.swift in Sources */,
 				FAFA0FF5259DFF070087C943 /* SessionError.swift in Sources */,
+				FAFA10E725A0E12A0087C943 /* ArtObjectNumber.swift in Sources */,
 				FAFA10A925A084EE0087C943 /* Presenter.swift in Sources */,
 				FAFA10C325A09F5C0087C943 /* ArtObjectDetailsJSON.swift in Sources */,
 				FAFA0F5F259DC3D20087C943 /* AppDelegate.swift in Sources */,

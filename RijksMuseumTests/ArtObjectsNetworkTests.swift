@@ -89,7 +89,7 @@ class ArtObjectsNetworkTests: XCTestCase {
         let session = try MockSession(json: "details_night_watch")
         let network = ArtObjectsNetworkImpl(session: session)
 
-        network.fetchDetails(id: ArtObjectId(stringLiteral: "-")) { result in
+        network.fetchDetails(objectNumber: ArtObjectNumber(stringLiteral: "-")) { result in
             switch result {
             case .failure:
                 XCTAssert(false, "Failed to parse response")

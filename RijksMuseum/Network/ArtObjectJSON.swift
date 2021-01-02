@@ -9,6 +9,7 @@ import Foundation
 
 struct ArtObjectJSON: Decodable {
     let id: String
+    let objectNumber: String
     let title: String?
     let principalOrFirstMaker: String?
 
@@ -42,13 +43,14 @@ extension ArtObjectJSON {
             return nil
         }
 
-        if id.isEmpty {
+        if id.isEmpty || objectNumber.isEmpty {
             return nil
         }
 
         let webURL = links.web.flatMap { URL(string: $0) }
 
         return ArtObject(id: ArtObjectId(stringLiteral: id),
+                         objectNumber: ArtObjectNumber(stringLiteral: objectNumber),
                          title: title ?? "",
                          author: principalOrFirstMaker ?? "",
                          imageURL: imageURL,

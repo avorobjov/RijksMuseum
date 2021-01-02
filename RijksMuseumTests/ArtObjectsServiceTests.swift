@@ -31,7 +31,7 @@ class ArtObjectsServiceTests: XCTestCase {
             }
         }
 
-        service.details(id: ArtObjectId(stringLiteral: "asd")) { result in
+        service.details(objectNumber: ArtObjectNumber(stringLiteral: "asd")) { result in
             switch result {
             case .failure(let error):
                 XCTAssertEqual(error, .noInternetConnection)
@@ -64,7 +64,7 @@ class ArtObjectsServiceTests: XCTestCase {
             }
         }
 
-        service.details(id: ArtObjectId(stringLiteral: "asd")) { result in
+        service.details(objectNumber: ArtObjectNumber(stringLiteral: "asd")) { result in
             switch result {
             case .failure(let error):
                 XCTAssertEqual(error, .commonError)

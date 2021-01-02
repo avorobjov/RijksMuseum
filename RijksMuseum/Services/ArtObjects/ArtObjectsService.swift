@@ -30,7 +30,7 @@ enum ArtObjectsServiceError: LocalizedError {
 protocol ArtObjectsService {
     func loadHome(completion: @escaping ArtObjectsCompletion)
     func search(query: String, completion: @escaping ArtObjectsCompletion)
-    func details(id: ArtObjectId, completion: @escaping ArtObjectDetailsCompletion)
+    func details(objectNumber: ArtObjectNumber, completion: @escaping ArtObjectDetailsCompletion)
 }
 
 final class ArtObjectsServiceImpl {
@@ -78,8 +78,8 @@ extension ArtObjectsServiceImpl: ArtObjectsService {
         }
     }
 
-    func details(id: ArtObjectId, completion: @escaping ArtObjectDetailsCompletion) {
-        network.fetchDetails(id: id) { result in
+    func details(objectNumber: ArtObjectNumber, completion: @escaping ArtObjectDetailsCompletion) {
+        network.fetchDetails(objectNumber: objectNumber) { result in
             do {
                 let details = try result.get()
 

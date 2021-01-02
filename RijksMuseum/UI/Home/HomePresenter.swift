@@ -15,12 +15,18 @@ final class HomePresenterImpl {
     }
 
     private let artObjectsService: ArtObjectsService
+    private weak var delegate: HomePresenterDelegate?
 
-    init(artObjectsService: ArtObjectsService) {
+    private var displayedObjects: [ArtObject] = []
+
+    init(artObjectsService: ArtObjectsService, delegate: HomePresenterDelegate) {
         self.artObjectsService = artObjectsService
+        self.delegate = delegate
     }
 
     func viewDidAttach() {
+        view?.set(title: "Home")
+
         updateObjects()
     }
 }
@@ -33,6 +39,15 @@ extension HomePresenterImpl: HomePresenter {
     func cancelSearch() {
         updateObjects()
     }
+
+    func showDetails(at index: Int) {
+        guard index >= 0, index < displayedObjects.count else {
+            return
+        }
+
+        let obj = displayedObjects[index]
+        delegate?.showDetails(artObject: obj)
+    }
 }
 
 private extension HomePresenterImpl {
@@ -43,7 +58,7 @@ private extension HomePresenterImpl {
     }
 
     func updateSearch(query: String?) {
-        guard let query = query, query.count > 2 else {
+        guard let query = query, query.count > 1 else {
             return
         }
 
@@ -54,7 +69,8 @@ private extension HomePresenterImpl {
 
     func displayArtObjectsResult(result: ArtObjectsResult) {
         do {
-            let items = try result.get().map {
+            displayedObjects = try result.get()
+            let items = displayedObjects.map {
                 ArtObjectCell.ViewModel(
                     imageURL: $0.imageURL,
                     title: $0.title,

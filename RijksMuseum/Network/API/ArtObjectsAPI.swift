@@ -10,7 +10,7 @@ import Alamofire
 enum ArtObjectsAPI {
     case home
     case search(query: String)
-    case details(id: ArtObjectId)
+    case details(objectNumber: ArtObjectNumber)
 }
 
 extension ArtObjectsAPI: API {
@@ -19,8 +19,8 @@ extension ArtObjectsAPI: API {
         case .home, .search:
             return "/api/en/collection"
 
-        case .details(let id):
-            return "/api/en/collection/\(id)"
+        case .details(let objectNumber):
+            return "/api/en/collection/\(objectNumber)"
         }
     }
 

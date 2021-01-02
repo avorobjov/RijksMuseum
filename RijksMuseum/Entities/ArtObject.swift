@@ -9,6 +9,7 @@ import Foundation
 
 struct ArtObject {
     let id: ArtObjectId
+    let objectNumber: ArtObjectNumber
     let title: String
     let author: String
 

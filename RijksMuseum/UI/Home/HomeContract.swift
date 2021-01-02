@@ -12,8 +12,14 @@ protocol HomePresenter: Presenter {
 
     func search(query: String?)
     func cancelSearch()
+
+    func showDetails(at index: Int)
 }
 
-protocol HomeView: View, MessagePresenting {
+protocol HomePresenterDelegate: AnyObject {
+    func showDetails(artObject: ArtObject)
+}
+
+protocol HomeView: View, MessagePresenting, TitleSettable {
     func show(items: [ArtObjectCell.ViewModel])
 }
