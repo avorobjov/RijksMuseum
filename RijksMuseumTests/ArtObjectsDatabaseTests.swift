@@ -70,5 +70,11 @@ class ArtObjectsDatabaseTests: XCTestCase {
 
         // bad search
         XCTAssertEqual(db.searchItems(query: "alkfjlslaksfjdjafsd;").count, 0)
+
+        // 0 symbols search search
+        XCTAssertEqual(db.searchItems(query: "").count, 0)
+
+        // 1 symbol search search
+        XCTAssertEqual(db.searchItems(query: "a").count, 0)
     }
 }

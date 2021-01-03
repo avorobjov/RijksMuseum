@@ -150,6 +150,11 @@ class HomePresenterTests: XCTestCase {
         }
 
         wait(for: [expectation], timeout: 2)
+
+        // cancel search and check home is displayed
+        presenter.cancelSearch()
+        XCTAssertEqual(view.items?.count, 1)
+        XCTAssertEqual(view.items!.first!.title, home.title)
     }
 
     func testOpenDetails() {
@@ -160,6 +165,9 @@ class HomePresenterTests: XCTestCase {
         presenter.view = view
 
         XCTAssertNil(delegate.details)
+        // check bad indexes don't crash
+        presenter.showDetails(at: -1)
+        presenter.showDetails(at: 2340803472)
 
         XCTAssertEqual(view.items?.count, 1)
         presenter.showDetails(at: 0)

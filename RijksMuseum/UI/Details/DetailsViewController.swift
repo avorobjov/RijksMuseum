@@ -37,8 +37,7 @@ final class DetailsViewController: UIViewController {
         presenter.view = self
     }
 
-    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator)
-    {
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         coordinator.animate { _ in
         } completion: { _ in
             self.updateZoomScale()

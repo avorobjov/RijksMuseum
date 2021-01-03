@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appCoordinator = AppCoordinator(assembly: assembly)
 
         let window = UIWindow(frame: UIScreen.main.bounds)
+        window.tintColor = .label
         appCoordinator.start(in: window)
         self.window = window
         window.makeKeyAndVisible()
