@@ -63,6 +63,8 @@
 		FAFA110225A110940087C943 /* ArtObjectRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA110125A110940087C943 /* ArtObjectRecordTests.swift */; };
 		FAFA110725A117A50087C943 /* ArtObjectsDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA110625A117A50087C943 /* ArtObjectsDatabaseTests.swift */; };
 		FAFA110C25A122280087C943 /* MockArtObjectsDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA110B25A122280087C943 /* MockArtObjectsDatabase.swift */; };
+		FAFA111125A1CB300087C943 /* HomePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA111025A1CB300087C943 /* HomePresenterTests.swift */; };
+		FAFA111625A1CB5D0087C943 /* MockArtObjectsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA111525A1CB5D0087C943 /* MockArtObjectsService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +151,8 @@
 		FAFA110125A110940087C943 /* ArtObjectRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectRecordTests.swift; sourceTree = "<group>"; };
 		FAFA110625A117A50087C943 /* ArtObjectsDatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectsDatabaseTests.swift; sourceTree = "<group>"; };
 		FAFA110B25A122280087C943 /* MockArtObjectsDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockArtObjectsDatabase.swift; sourceTree = "<group>"; };
+		FAFA111025A1CB300087C943 /* HomePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterTests.swift; sourceTree = "<group>"; };
+		FAFA111525A1CB5D0087C943 /* MockArtObjectsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockArtObjectsService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,11 +228,11 @@
 			isa = PBXGroup;
 			children = (
 				FAFA106D259FE0CB0087C943 /* UI */,
-				FAFA0FF3259DFEE50087C943 /* Support Files */,
 				FAFA101D259FAD690087C943 /* Services */,
 				FAFA0FBF259DE9A00087C943 /* Entities */,
 				FAFA0FBE259DE9A00087C943 /* Database */,
 				FAFA0FC0259DE9A00087C943 /* Network */,
+				FAFA0FF3259DFEE50087C943 /* Support Files */,
 				FAFA0FEE259DFDD60087C943 /* Constants.swift */,
 				FAFA1083259FE19B0087C943 /* AppAssembly.swift */,
 				FAFA0F67259DC3D50087C943 /* Assets.xcassets */,
@@ -239,17 +243,18 @@
 		FAFA0F74259DC3D60087C943 /* RijksMuseumTests */ = {
 			isa = PBXGroup;
 			children = (
-				FAFA110625A117A50087C943 /* ArtObjectsDatabaseTests.swift */,
-				FAFA110125A110940087C943 /* ArtObjectRecordTests.swift */,
 				FAFA1034259FC4970087C943 /* Mocks */,
 				FAFA1057259FDA170087C943 /* Responses */,
-				FAFA1065259FDF5B0087C943 /* ArtObjectsServiceTests.swift */,
-				FAFA1052259FD7AE0087C943 /* ArtObjectsNetworkTests.swift */,
-				FAFA102F259FC47C0087C943 /* SessionTests.swift */,
 				FAFA1027259FBDBD0087C943 /* APITests.swift */,
 				FAFA1005259E06BD0087C943 /* ArtObjectJSONTests.swift */,
-				FAFA0FF9259DFF7D0087C943 /* SessionErrorTests.swift */,
+				FAFA110125A110940087C943 /* ArtObjectRecordTests.swift */,
+				FAFA110625A117A50087C943 /* ArtObjectsDatabaseTests.swift */,
+				FAFA1052259FD7AE0087C943 /* ArtObjectsNetworkTests.swift */,
+				FAFA1065259FDF5B0087C943 /* ArtObjectsServiceTests.swift */,
+				FAFA111025A1CB300087C943 /* HomePresenterTests.swift */,
 				FAFA0F77259DC3D60087C943 /* Info.plist */,
+				FAFA0FF9259DFF7D0087C943 /* SessionErrorTests.swift */,
+				FAFA102F259FC47C0087C943 /* SessionTests.swift */,
 			);
 			path = RijksMuseumTests;
 			sourceTree = "<group>";
@@ -286,10 +291,10 @@
 		FAFA0FC0259DE9A00087C943 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				FAFA1049259FD2800087C943 /* Responses */,
 				FAFA100F259FA7A00087C943 /* API */,
-				FAFA0FCB259DE9D80087C943 /* ArtObjectJSON.swift */,
+				FAFA1049259FD2800087C943 /* Responses */,
 				FAFA10C225A09F5C0087C943 /* ArtObjectDetailsJSON.swift */,
+				FAFA0FCB259DE9D80087C943 /* ArtObjectJSON.swift */,
 				FAFA0FD8259DEA210087C943 /* Session.swift */,
 				FAFA0FF4259DFF070087C943 /* SessionError.swift */,
 			);
@@ -300,8 +305,8 @@
 			isa = PBXGroup;
 			children = (
 				FAFA0F5E259DC3D20087C943 /* AppDelegate.swift */,
-				FAFA0F69259DC3D50087C943 /* LaunchScreen.storyboard */,
 				FAFA0F6C259DC3D50087C943 /* Info.plist */,
+				FAFA0F69259DC3D50087C943 /* LaunchScreen.storyboard */,
 			);
 			name = "Support Files";
 			sourceTree = "<group>";
@@ -326,9 +331,9 @@
 		FAFA101E259FAD800087C943 /* ArtObjects */ = {
 			isa = PBXGroup;
 			children = (
-				FAFA101F259FB18F0087C943 /* ArtObjectsService.swift */,
 				FAFA1044259FD10B0087C943 /* ArtObjectsDatabase.swift */,
 				FAFA103F259FD1030087C943 /* ArtObjectsNetwork.swift */,
+				FAFA101F259FB18F0087C943 /* ArtObjectsService.swift */,
 			);
 			path = ArtObjects;
 			sourceTree = "<group>";
@@ -339,6 +344,7 @@
 				FAFA1035259FC4A00087C943 /* MockSession.swift */,
 				FAFA103A259FCB600087C943 /* MockAPI.swift */,
 				FAFA110B25A122280087C943 /* MockArtObjectsDatabase.swift */,
+				FAFA111525A1CB5D0087C943 /* MockArtObjectsService.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -377,11 +383,11 @@
 			isa = PBXGroup;
 			children = (
 				FAFA109825A07DF40087C943 /* Views */,
+				FAFA107E259FE1460087C943 /* HomeBuilder.swift */,
 				FAFA106F259FE10B0087C943 /* HomeContract.swift */,
 				FAFA1074259FE1140087C943 /* HomePresenter.swift */,
 				FAFA1079259FE11D0087C943 /* HomeViewController.swift */,
 				FAFA10A325A082D40087C943 /* HomeViewController.xib */,
-				FAFA107E259FE1460087C943 /* HomeBuilder.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -389,10 +395,10 @@
 		FAFA108D259FE74F0087C943 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				FAFA108E259FE77F0087C943 /* View.swift */,
-				FAFA10A825A084EE0087C943 /* Presenter.swift */,
 				FAFA109325A07CED0087C943 /* MessagePresenting.swift */,
+				FAFA10A825A084EE0087C943 /* Presenter.swift */,
 				FAFA10E125A0DC7A0087C943 /* TitleSettable.swift */,
+				FAFA108E259FE77F0087C943 /* View.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -409,11 +415,11 @@
 		FAFA10AD25A09B010087C943 /* Details */ = {
 			isa = PBXGroup;
 			children = (
+				FAFA10BD25A09B2D0087C943 /* DetailsBuilder.swift */,
 				FAFA10AE25A09B0F0087C943 /* DetailsContract.swift */,
 				FAFA10B325A09B180087C943 /* DetailsPresenter.swift */,
 				FAFA10B825A09B250087C943 /* DetailsViewController.swift */,
 				FAFA10DC25A0CFC80087C943 /* DetailsViewController.xib */,
-				FAFA10BD25A09B2D0087C943 /* DetailsBuilder.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -708,6 +714,7 @@
 			files = (
 				FAFA110C25A122280087C943 /* MockArtObjectsDatabase.swift in Sources */,
 				FAFA1030259FC47C0087C943 /* SessionTests.swift in Sources */,
+				FAFA111625A1CB5D0087C943 /* MockArtObjectsService.swift in Sources */,
 				FAFA110225A110940087C943 /* ArtObjectRecordTests.swift in Sources */,
 				FAFA1036259FC4A00087C943 /* MockSession.swift in Sources */,
 				FAFA1006259E06BD0087C943 /* ArtObjectJSONTests.swift in Sources */,
@@ -717,6 +724,7 @@
 				FAFA0FFA259DFF7D0087C943 /* SessionErrorTests.swift in Sources */,
 				FAFA1053259FD7AE0087C943 /* ArtObjectsNetworkTests.swift in Sources */,
 				FAFA110725A117A50087C943 /* ArtObjectsDatabaseTests.swift in Sources */,
+				FAFA111125A1CB300087C943 /* HomePresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
