@@ -10,10 +10,11 @@ import Foundation
 
 class MockArtObjectsDatabase: ArtObjectsDatabase {
     var home: [ArtObject] = []
+    var outdatedHome: [ArtObject] = []
     var search: [ArtObject] = []
 
     func readHomeItems(showOutdated: Bool) -> [ArtObject] {
-        return home
+        return showOutdated ? outdatedHome : home
     }
 
     func saveHomeItems(_ items: [ArtObject]) {
